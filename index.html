@@ -3,17 +3,21 @@
 <head>
     <meta charset="utf-8">
     <title>The HTML5 Herald</title>
-
-    <!-- STYLES -->
-    <link rel="stylesheet" href="styles.css">
-
 </head>
 
-<body>
+<body ng-app="rtfmApp">
 <h2>A simple real time forum</h2>
 <div class="container" ng-view></div>
 
 <!-- SCRIPTS -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-route.js"></script>
 <script src="app.js"></script>
+<script src="pages/login/login.js"></script>
+<script src="pages/main/main.js"></script>
+<script src="pages/thread/thread.js"></script>
+<script src="services/userService.js"></script>
+<script src="services/threadService.js"></script>
+
 </body>
 </html>

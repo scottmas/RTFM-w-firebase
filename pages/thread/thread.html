@@ -1,0 +1,13 @@
+<div ng-controller="threadPageController">
+    <a href="#/main">Back to main page</a>
+    <h1>A specific thread</h1>
+    <div>
+        <input type="text" ng-model="threadComment" placeholder="Write a comment..."/>
+        <button ng-click="addComment()">Add Comment</button>
+    </div>
+    <div>
+        <div ng-repeat="comment in thread.comments">{{comment.author}}: {{comment.text}}</div>
+        <div ng-if="!thread.comments.length">There are no comments on this thread</div>
+    </div>
+
+</div>

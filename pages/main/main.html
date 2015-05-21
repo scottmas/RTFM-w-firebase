@@ -1,0 +1,13 @@
+<div ng-controller="mainPageController">
+    <a href='#' ng-click="logout($event)">Logout</a>
+    <h2>All Threads</h2>
+    <div>
+        <input type="text" ng-model='newThreadTitle' placeholder="New thread title..."/>
+        <button ng-click="addThread()">Add thread</button>
+    </div>
+    <div>
+        <div ng-repeat="thread in threads">
+            <a ng-href="#/thread/{{thread.id}}"> {{thread.text}} by {{thread.author}}</a>
+        </div>
+    </div>
+</div>
