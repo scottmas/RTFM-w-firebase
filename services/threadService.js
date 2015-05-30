@@ -2,32 +2,27 @@ angular.module("rtfmApp").service("threadService", function(){
     var data = {
         "threads": [
             {
-                "text": "A new thread!",
-                "author": "Scott",
-                "id": 1,
+                "title": "A new thread!",
+                "username": "Scott",                
                 "comments": [
                     {
                         "text": "This is the best title I have ever seen for a thread",
-                        "author": "Phil",
-                        "id": 1000
+                        "username": "Phil"
                     },
                     {
                         "text": "I know right?",
-                        "author": "Joe Somebody",
-                        "id": 1001
+                        "username": "Joe Somebody"
                     }
                 ]
             },
             {
-                "text": "Another thread",
-                "author": "Joe Somebody",
-                "id": 2,
+                "title": "Another thread",
+                "username": "Joe Somebody",
                 "comments": []
             },
             {
-                "text": "Yet another thread",
-                "author": "Phil",
-                "id": 3,
+                "title": "Yet another thread",
+                "username": "Phil",
                 "comments": []
             }
         ]
@@ -38,23 +33,10 @@ angular.module("rtfmApp").service("threadService", function(){
     };
 
     this.getThread = function(threadId){
-         for(var i = 0; i < threads.length; i++){
-             if(data.threads[i].id === data.threadId){
+         for(var i = 0; i < data.threads.length; i++){
+             if(i === threadId){
                  return data.threads[i]
              }
          }
     };
-
-    this.addNewThread = function(newThread){
-        data.threads.push(newThread);
-    };
-
-    this.addNewCommentToThread = function(threadId, newComment){
-        for(var i = 0; i < data.threads.length; i++){
-            if(data.threads[i].id === threadId){
-                data.threads[i].comments.push(newComment);
-                return;
-            }
-        }
-    }
 });

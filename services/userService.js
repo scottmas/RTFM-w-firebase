@@ -5,7 +5,7 @@ angular.module('rtfmApp').service('userService', function(){
         name: 'Scott'
     };
 
-    this.getUser = function(){
+    this.getLoggedInUser = function(){
         return user;
     }
 

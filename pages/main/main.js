@@ -1,24 +1,28 @@
 angular.module('rtfmApp')
 .controller('mainPageController', function($scope, $location, userService, threadService){
 
-    $scope.newThread = '';
+    $scope.user = userService.getLoggedInUser();
+
+    $scope.newThreadTitle = '';
 
     $scope.threads = threadService.getAllThreads();
 
-    $scope.addThread = function(){
-        var newThread = {
-            text: $scope.newThreadTitle,
-            author: userService.getUser().name,
-            id: parseInt(Math.random()*100000000000),
+    $scope.addThread = function(){  
+        if(!$scope.newThreadTitle){
+            return false; //Don't do anything if the text box is empty
+        }
+        var newThread = {       
+            title: $scope.newThreadTitle,
+            username: $scope.user.name,            
             comments: []
         };
 
-        threadService.addNewThread(newThread);
-        $scope.newThreadTitle = '';
+        $scope.threads.push(newThread);
+
+        $scope.newThreadTitle = ''; //Clear the text in the input box
     }
 
-    $scope.logout = function($event){
-        $event.preventDefault();
+    $scope.logout = function(){        
         //Todo: actually log out;
         $location.path('login');
     }
