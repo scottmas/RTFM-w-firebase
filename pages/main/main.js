@@ -7,6 +7,10 @@ angular.module('rtfmApp')
 
     $scope.threads = threadService.getAllThreads();
 
+    $scope.threads.$loaded().then(function(){
+        console.log($scope.threads)
+    });
+
     $scope.addThread = function(){  
         if(!$scope.newThreadTitle){
             return false; //Don't do anything if the text box is empty
@@ -17,7 +21,7 @@ angular.module('rtfmApp')
             comments: []
         };
 
-        $scope.threads.push(newThread);
+        $scope.threads.$add(newThread);
 
         $scope.newThreadTitle = ''; //Clear the text in the input box
     }

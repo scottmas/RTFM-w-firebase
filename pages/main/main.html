@@ -7,7 +7,7 @@
     </div>
     <div>
         <div ng-repeat="thread in threads">
-            <a ng-href="#/thread/{{$index}}"> {{thread.title}} by {{thread.username}}</a>
+            <a ng-href="#/thread/{{thread.$id}}"> {{thread.title}} by {{thread.username}}</a>
         </div>
     </div>
 </div>
