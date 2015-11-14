@@ -1,6 +1,6 @@
 angular.module('rtfmApp')
 .controller('threadPageController', function($scope, $location, $routeParams, threadService, userService){
-    var threadId = parseInt($routeParams.threadId);
+    var threadId = $routeParams.threadId;
 
     $scope.newComment = '';
     var thread = threadService.getThread(threadId);
