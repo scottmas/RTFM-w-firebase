@@ -1,4 +1,4 @@
-RTFM
+RTFM!!
 ====
 
 In this project, you'll get comfortable with hooking Firebase to your Angular application in order to persist your data.
